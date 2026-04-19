@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bak51aug0mtc2"]
+
+[ext_resource type="PackedScene" uid="uid://cicguqoh1ubr3" path="res://entities/player/vinny.tscn" id="1_2q6dc"]
+
+[node name="Level" type="Node2D" unique_id=1108228522]
+
+[node name="Ground" type="Node2D" parent="." unique_id=306128855]
+
+[node name="Vinny" parent="." unique_id=835378263 instance=ExtResource("1_2q6dc")]
+
+[node name="Camera2D" type="Camera2D" parent="Vinny" unique_id=854223475]
