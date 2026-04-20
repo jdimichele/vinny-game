@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bak51aug0mtc2"]
 
 [ext_resource type="PackedScene" uid="uid://cicguqoh1ubr3" path="res://entities/player/vinny.tscn" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://d2b27fsx3b2wy" path="res://ui.tscn" id="2_w7c3h"]
 
 [node name="Level" type="Node2D" unique_id=1108228522]
 
@@ -9,3 +10,7 @@
 [node name="Vinny" parent="." unique_id=835378263 instance=ExtResource("1_2q6dc")]
 
 [node name="Camera2D" type="Camera2D" parent="Vinny" unique_id=854223475]
+
+[node name="Items" type="Node2D" parent="." unique_id=1598481935]
+
+[node name="UI" parent="." unique_id=1778643903 instance=ExtResource("2_w7c3h")]

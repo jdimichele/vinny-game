@@ -5,12 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://dfarinrd8bwvw" path="res://assets/vinny_assets/vinny-2.png" id="2_0wgj7"]
 [ext_resource type="Texture2D" uid="uid://wsk4mcie3mnb" path="res://assets/vinny_assets/vinny-3.png" id="3_qna40"]
 [ext_resource type="Texture2D" uid="uid://dpj4eljcryha1" path="res://assets/vinny_assets/vinny-4.png" id="4_it0bf"]
+[ext_resource type="Texture2D" uid="uid://1req08n0dmwy" path="res://assets/vinny_assets/Bat_Low.png" id="6_0k2at"]
 [ext_resource type="Texture2D" uid="uid://mkyytqrmoyut" path="res://assets/vinny_assets/vinny_mr-1.png" id="6_6xbxu"]
 [ext_resource type="Texture2D" uid="uid://dcn2730m65n3e" path="res://assets/vinny_assets/vinny_ml-1.png" id="6_knlg0"]
 [ext_resource type="Texture2D" uid="uid://bffrl8mp4o4x6" path="res://assets/vinny_assets/vinny_ml-2.png" id="7_6il4l"]
 [ext_resource type="Texture2D" uid="uid://cdhf68o1a2ptw" path="res://assets/vinny_assets/vinny_mr-2.png" id="7_a41sd"]
+[ext_resource type="Texture2D" uid="uid://bgbj4useewhcv" path="res://assets/vinny_assets/Bat_Mid.png" id="7_diyfq"]
 [ext_resource type="Texture2D" uid="uid://bmykbdfh5npe2" path="res://assets/vinny_assets/vinny_ml-3.png" id="8_0bic2"]
 [ext_resource type="Texture2D" uid="uid://csdirqtjlfkri" path="res://assets/vinny_assets/vinny_mr-3.png" id="8_gxek1"]
+[ext_resource type="Texture2D" uid="uid://ct5lfqja22lw2" path="res://assets/vinny_assets/Bat_High.png" id="8_jlnwi"]
 [ext_resource type="Texture2D" uid="uid://cj8ykcw71rgnp" path="res://assets/vinny_assets/vinny_ml-4.png" id="9_0k2at"]
 [ext_resource type="Texture2D" uid="uid://d1lglnk7dntl7" path="res://assets/vinny_assets/vinny_mr-4.png" id="9_pt7g2"]
 
@@ -31,6 +34,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_0k2at")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_diyfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jlnwi")
+}],
+"loop": true,
+"name": &"new_vinny",
 "speed": 10.0
 }, {
 "frames": [{
@@ -68,17 +85,18 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xbxu"]
-size = Vector2(60, 49)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knlg0"]
+radius = 28.5
+height = 59.0
 
 [node name="Vinny" type="CharacterBody2D" unique_id=835378263]
 script = ExtResource("1_0wgj7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=809081168]
 sprite_frames = SubResource("SpriteFrames_1yik4")
-animation = &"vinny_ml"
+animation = &"new_vinny"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=680981418]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_6xbxu")
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_knlg0")

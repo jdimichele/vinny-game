@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://d2b27fsx3b2wy"]
+
+[ext_resource type="Script" uid="uid://dqauqn0djrq52" path="res://ui.gd" id="1_fyqef"]
+
+[sub_resource type="Theme" id="Theme_fyqef"]
+
+[sub_resource type="Theme" id="Theme_m6e0p"]
+
+[node name="UI" type="CanvasLayer" unique_id=1778643903]
+script = ExtResource("1_fyqef")
+
+[node name="Experience" type="Control" parent="." unique_id=1001178267]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 746.0
+offset_top = 1030.0
+offset_right = 786.0
+offset_bottom = 1070.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Experience" unique_id=1282543753]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Experience/VBoxContainer" unique_id=1636584625]
+layout_mode = 2
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="Experience/VBoxContainer" unique_id=1939750958]
+layout_mode = 2
+
+[node name="PlayerLevel" type="Control" parent="." unique_id=1909062947]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerLevel" unique_id=1829302412]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="PlayerLevel/VBoxContainer" unique_id=1913108576]
+layout_mode = 2
+text = "1"
+
+[node name="TextureRect" type="TextureRect" parent="PlayerLevel/VBoxContainer" unique_id=1181486559]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=259098401]
+offset_left = 766.0
+offset_top = 1025.0
+offset_right = 806.0
+offset_bottom = 1065.0
+theme = SubResource("Theme_fyqef")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer" unique_id=807336315]
+layout_mode = 2
+theme = SubResource("Theme_m6e0p")
