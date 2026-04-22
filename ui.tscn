@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://d2b27fsx3b2wy"]
 
 [ext_resource type="Script" uid="uid://dqauqn0djrq52" path="res://ui.gd" id="1_fyqef"]
+[ext_resource type="Texture2D" uid="uid://befgmmlsavhwo" path="res://assets/ui_assets/bg.png" id="2_nltto"]
+[ext_resource type="Texture2D" uid="uid://cagoypt3q6a4j" path="res://assets/ui_assets/over.png" id="3_ibotj"]
+[ext_resource type="Texture2D" uid="uid://bt26smmofio5b" path="res://assets/ui_assets/progress.png" id="4_n5ude"]
 
 [sub_resource type="Theme" id="Theme_fyqef"]
 
@@ -9,31 +12,13 @@
 [node name="UI" type="CanvasLayer" unique_id=1778643903]
 script = ExtResource("1_fyqef")
 
-[node name="Experience" type="Control" parent="." unique_id=1001178267]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 746.0
-offset_top = 1030.0
-offset_right = 786.0
-offset_bottom = 1070.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Experience" unique_id=1282543753]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="Experience/VBoxContainer" unique_id=1636584625]
-layout_mode = 2
-text = "0"
-
-[node name="TextureRect" type="TextureRect" parent="Experience/VBoxContainer" unique_id=1939750958]
-layout_mode = 2
-
 [node name="PlayerLevel" type="Control" parent="." unique_id=1909062947]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 764.0
+offset_top = 1038.0
+offset_right = 804.0
+offset_bottom = 1078.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayerLevel" unique_id=1829302412]
 layout_mode = 0
@@ -47,13 +32,44 @@ text = "1"
 [node name="TextureRect" type="TextureRect" parent="PlayerLevel/VBoxContainer" unique_id=1181486559]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=259098401]
-offset_left = 766.0
-offset_top = 1025.0
-offset_right = 806.0
-offset_bottom = 1065.0
+[node name="HealthProgressContainer" type="MarginContainer" parent="." unique_id=259098401]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -34.0
+offset_right = 150.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = SubResource("Theme_fyqef")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer" unique_id=807336315]
+[node name="HealthProgressBar" type="TextureProgressBar" parent="HealthProgressContainer" unique_id=807336315]
 layout_mode = 2
 theme = SubResource("Theme_m6e0p")
+value = 100.0
+texture_under = ExtResource("2_nltto")
+texture_over = ExtResource("3_ibotj")
+texture_progress = ExtResource("4_n5ude")
+
+[node name="ExperienceProgressContainer" type="MarginContainer" parent="." unique_id=98082184]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -49.0
+offset_right = 150.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1, 0.3)
+
+[node name="ExperienceProgressBar" type="TextureProgressBar" parent="ExperienceProgressContainer" unique_id=1425888621]
+layout_mode = 2
+texture_under = ExtResource("2_nltto")
+texture_over = ExtResource("3_ibotj")
+texture_progress = ExtResource("4_n5ude")

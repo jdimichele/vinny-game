@@ -30,30 +30,3 @@ zoom = Vector2(3, 3)
 
 [node name="Experience" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="0" unique_id=328085897 instance=ExtResource("5_d4kx6")]
 position = Vector2(33, -2)
-
-[node name="Experience2" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="1" unique_id=701489917 instance=ExtResource("5_d4kx6")]
-position = Vector2(33, -2)
-
-[node name="Experience3" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="2" unique_id=740631745 instance=ExtResource("5_d4kx6")]
-position = Vector2(33, -2)
-
-[node name="Experience4" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="3" unique_id=116293316 instance=ExtResource("5_d4kx6")]
-position = Vector2(33, -2)
-
-[node name="Experience5" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="4" unique_id=1989820649 instance=ExtResource("5_d4kx6")]
-position = Vector2(33, -2)
-
-[node name="Experience6" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="5" unique_id=1958782747 instance=ExtResource("5_d4kx6")]
-position = Vector2(33, -2)
-
-[node name="Experience7" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="6" unique_id=581250421 instance=ExtResource("5_d4kx6")]
-position = Vector2(33, -2)
-
-[node name="Experience8" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="7" unique_id=530413675 instance=ExtResource("5_d4kx6")]
-position = Vector2(33, -2)
-
-[node name="Experience9" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="8" unique_id=1063783011 instance=ExtResource("5_d4kx6")]
-position = Vector2(33, -2)
-
-[node name="Experience10" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="9" unique_id=502196052 instance=ExtResource("5_d4kx6")]
-position = Vector2(33, -2)
