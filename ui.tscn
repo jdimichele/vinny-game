@@ -47,6 +47,7 @@ grow_vertical = 0
 theme = SubResource("Theme_fyqef")
 
 [node name="HealthProgressBar" type="TextureProgressBar" parent="HealthProgressContainer" unique_id=807336315]
+unique_name_in_owner = true
 layout_mode = 2
 theme = SubResource("Theme_m6e0p")
 value = 100.0

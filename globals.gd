@@ -4,9 +4,10 @@ signal stat_change
 
 var xp_to_level = 100
 
-var health = 100:
+var health : float = 100:
 	set(value):
 		health = value
+		%HealthProgressBar.value = value
 		stat_change.emit()
 
 var experience = 0:
