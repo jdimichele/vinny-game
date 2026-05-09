@@ -12,5 +12,5 @@ func _process(_delta):
 
 
 func _on_body_entered(_body):
-	Globals.experience += 10
+	Stats.new().experience += 10
 	queue_free()

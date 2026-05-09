@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 @onready var vinny = $AnimatedSprite2D
-@onready var health_bar = Globals.health
+var health_bar = Stats.new().health
 
-var health : float = 100:
+var health : float = 100.0:
 	set(value):
 		health = value
-		health_bar.value = value
+		#health_bar.value = value
 var movement_speed : float = 150
 var max_health : float = 100:
 	set(value):
