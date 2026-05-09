@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
 @onready var vinny = $AnimatedSprite2D
+@onready var health_bar = Globals.health
 
 var health : float = 100:
 	set(value):
 		health = value
-		%HealthProgressBar.value = value
+		health_bar.value = value
 var movement_speed : float = 150
 var max_health : float = 100:
 	set(value):
@@ -47,9 +48,13 @@ func _process(delta):
 			vinny.play("vinny_ml")
 		if Input.is_action_pressed("move_right"):
 			vinny.play("vinny_mr")
+		if Input.is_action_pressed("move_up"):
+			vinny.play("vinny_mu")
+		if Input.is_action_pressed("move_down"):
+			vinny.play("vinny_md")
 	else:
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
-		vinny.play("new_vinny")
+		vinny.play("default")
 	
 	health += recovery * delta
 	#check_XP()

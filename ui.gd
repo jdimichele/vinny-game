@@ -17,6 +17,9 @@ func update_stat_text():
 func update_health_bar():
 	health_bar.value = Globals.health
 
+func update_max_health():
+	health_bar.max_value = Globals.max_health
+
 func update_experience_bar():
 	experience_bar.value = Globals.experience
 
