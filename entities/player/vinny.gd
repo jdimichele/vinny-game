@@ -6,12 +6,12 @@ var health_bar = Stats.new().health
 var health : float = 100.0:
 	set(value):
 		health = value
-		#health_bar.value = value
+		health_bar = value
 var movement_speed : float = 150
 var max_health : float = 100:
 	set(value):
 		max_health = value
-		%HealthProgressBar.max_value = value
+		$HealthProgressBar.max_value = value
 var recovery : float = 0
 var armor : float = 0
 var might : float = 1.0

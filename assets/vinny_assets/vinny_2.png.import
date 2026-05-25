@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgbj4useewhcv"
-path="res://.godot/imported/Bat_Mid.png-71a756df88d921952e0a84521bdc04f1.ctex"
+uid="uid://ct5lfqja22lw2"
+path="res://.godot/imported/vinny_2.png-e01717625a6bfb56bd8926e017e03069.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/vinny_assets/Bat_Mid.png"
-dest_files=["res://.godot/imported/Bat_Mid.png-71a756df88d921952e0a84521bdc04f1.ctex"]
+source_file="res://assets/vinny_assets/vinny_2.png"
+dest_files=["res://.godot/imported/vinny_2.png-e01717625a6bfb56bd8926e017e03069.ctex"]
 
 [params]
 
