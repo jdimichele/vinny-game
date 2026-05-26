@@ -1,39 +1,12 @@
 extends CharacterBody2D
 
+signal attacking(pos, direction)
+
 @onready var vinny = $AnimatedSprite2D
-var health_bar = Stats.new().health
+var can_attack: bool = true
 
-var health : float = 100.0:
-	set(value):
-		health = value
-		health_bar = value
 var movement_speed : float = 150
-var max_health : float = 100:
-	set(value):
-		max_health = value
-		$HealthProgressBar.max_value = value
-var recovery : float = 0
-var armor : float = 0
-var might : float = 1.0
-var area : float = 0
-
-
-var XP : int = 0:
-	set(value):
-		XP = value
-		%XP.value = value
-var total_XP : int = 0
-var level : int = 1:
-	set(value):
-		level = value
-		$PlayerLevel/VBoxContainer/Label.text = "Lvl " + str(value)
-		%Options.show_option()
-		
-		if level >= 3:
-			%XP.max_value = 20
-		elif level >= 7:
-			%XP.max_value = 40
-
+var xp_to_level = 100
 
 func _process(delta):
 	# Add the gravity.
@@ -42,6 +15,7 @@ func _process(delta):
 
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * movement_speed;
+	Stats.player_pos = global_position
 
 	if direction:
 		if Input.is_action_pressed("move_left"):
@@ -56,10 +30,38 @@ func _process(delta):
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
 		vinny.play("default")
 	
-	health += recovery * delta
-	#check_XP()
 	move_and_collide(velocity * delta)
+	basic_attack()
+	#health += recovery * delta
+	check_XP()
 
 
-func take_damage(amount):
-	health -= max(amount - armor, 0)
+
+
+func check_XP():
+	if(Stats.experience >= xp_to_level):
+		level_up()
+
+func level_up():
+	if(Stats.experience >= xp_to_level):
+		Stats.player_level += 1
+		Stats.max_health += 5
+		Stats.health = Stats.max_health
+		Stats.experience = 0
+		
+func basic_attack():
+	var vinny_pos = Stats.player_pos.round()
+	if(can_attack):
+		var attack_markers = $AttackPositions.get_children()
+		var selected_attack_position = attack_markers[randi() % attack_markers.size()]
+		can_attack = false
+		$AttackTimer.start()
+		attacking.emit(selected_attack_position.global_position, vinny_pos)
+		
+
+#func take_damage(amount):
+	#health -= max(amount - armor, 0)
+
+
+func _on_attack_timer_timeout():
+	can_attack = true

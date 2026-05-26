@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://di5spy66ebjm0"]
+
+[ext_resource type="Script" uid="uid://churgb50r7n7p" path="res://attacks/vinny_basic_attack.gd" id="1_a3f76"]
+[ext_resource type="Texture2D" uid="uid://b6h0ghorc3fr7" path="res://assets/vinny_assets/vinny_basic_attack.png" id="1_f6els"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3f76"]
+radius = 15.0
+
+[node name="VinnyBasicAttack" type="Area2D" unique_id=625843618]
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_a3f76")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=96458892]
+texture = ExtResource("1_f6els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=420738904]
+shape = SubResource("CircleShape2D_a3f76")
+
+[node name="SelfDestructTimer" type="Timer" parent="." unique_id=1117473701]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="SelfDestructTimer" to="." method="_on_self_destruct_timer_timeout"]

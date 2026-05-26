@@ -7,22 +7,27 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(ready)
-	#Globals.connect("stat_change", update_stat_text)
-
-func update_stat_text():
+	Stats.connect("stat_change", update_stat_text)
 	update_health_bar()
+	update_max_health()
 	update_experience_bar()
 	update_player_level_text()
 
+func update_stat_text():
+	update_health_bar()
+	update_max_health()
+	update_experience_bar()
+	update_player_level_text()
+	
+
 func update_health_bar():
-	health_bar.value = Stats.new().health
+	health_bar.value = Stats.health
 
 func update_max_health():
-	health_bar.max_value = Stats.new().max_health
+	health_bar.max_value = Stats.max_health
 
 func update_experience_bar():
-	experience_bar.value = Stats.new().experience
+	experience_bar.value = Stats.experience
 
 func update_player_level_text():
-	player_level_label.text = str(Stats.new().player_level)
+	player_level_label.text = str(Stats.player_level)

@@ -1,16 +1,22 @@
 [gd_scene format=3 uid="uid://bak51aug0mtc2"]
 
 [ext_resource type="PackedScene" uid="uid://cicguqoh1ubr3" path="res://entities/player/vinny.tscn" id="1_2q6dc"]
-[ext_resource type="PackedScene" uid="uid://d2b27fsx3b2wy" path="res://ui.tscn" id="2_w7c3h"]
+[ext_resource type="Script" uid="uid://5rycthse1w0y" path="res://scenes/level.gd" id="1_w8frs"]
+[ext_resource type="PackedScene" uid="uid://d2b27fsx3b2wy" path="res://user_interface/ui.tscn" id="2_w7c3h"]
 
 [node name="Level" type="Node2D" unique_id=1108228522]
+script = ExtResource("1_w8frs")
 
 [node name="Ground" type="Node2D" parent="." unique_id=306128855]
+
+[node name="Items" type="Node2D" parent="." unique_id=1598481935]
+
+[node name="Attacks" type="Node2D" parent="." unique_id=536936595]
 
 [node name="Vinny" parent="." unique_id=835378263 instance=ExtResource("1_2q6dc")]
 
 [node name="Camera2D" type="Camera2D" parent="Vinny" unique_id=854223475]
 
-[node name="Items" type="Node2D" parent="." unique_id=1598481935]
-
 [node name="UI" parent="." unique_id=1778643903 instance=ExtResource("2_w7c3h")]
+
+[connection signal="attacking" from="Vinny" to="." method="_on_player_attack_input"]

@@ -69,6 +69,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_0k2at")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_diyfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jlnwi")
+}],
+"loop": true,
+"name": &"vinny_mr",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("6_6xbxu")
 }, {
 "duration": 1.0,
@@ -81,7 +95,7 @@ animations = [{
 "texture": ExtResource("9_pt7g2")
 }],
 "loop": true,
-"name": &"vinny_mr",
+"name": &"vinny_mr_2",
 "speed": 10.0
 }, {
 "frames": [{
@@ -102,18 +116,31 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_knlg0"]
-radius = 28.5
-height = 59.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fqkdb"]
+radius = 18.0
+height = 52.0
 
 [node name="Vinny" type="CharacterBody2D" unique_id=835378263]
+collision_mask = 31
 script = ExtResource("1_0wgj7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=809081168]
 sprite_frames = SubResource("SpriteFrames_1yik4")
-animation = &"vinny_ml"
+animation = &"vinny_mr"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=680981418]
-position = Vector2(0, 3)
-shape = SubResource("CapsuleShape2D_knlg0")
+position = Vector2(0, -2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fqkdb")
+
+[node name="AttackPositions" type="Node2D" parent="." unique_id=36078779]
+
+[node name="Marker2D" type="Marker2D" parent="AttackPositions" unique_id=786040982]
+
+[node name="Marker2D2" type="Marker2D" parent="AttackPositions" unique_id=806794326]
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=399748566]
+one_shot = true
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
