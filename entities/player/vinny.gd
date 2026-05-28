@@ -4,7 +4,6 @@ signal attacking(pos, direction)
 
 @onready var vinny = $AnimatedSprite2D
 var can_attack: bool = true
-
 var movement_speed : float = 150
 var xp_to_level = 100
 
@@ -16,23 +15,42 @@ func _process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * movement_speed;
 	Stats.player_pos = global_position
+	move_and_slide()
 
 	if direction:
-		if Input.is_action_pressed("move_left"):
+		if (Input.is_action_pressed("move_left")):
 			vinny.play("vinny_ml")
-		if Input.is_action_pressed("move_right"):
+			if (can_attack): 
+				can_attack = false
+				$AttackTimer.start()
+				var attack_left = $AttackPositions/MarkerLeft
+				attacking.emit(attack_left.global_position, direction)
+		if (Input.is_action_pressed("move_right")):
 			vinny.play("vinny_mr")
-		if Input.is_action_pressed("move_up"):
+			if (can_attack):
+				can_attack = false
+				$AttackTimer.start()
+				var attack_right = $AttackPositions/MarkerRight
+				attacking.emit(attack_right.global_position, direction)
+		if (Input.is_action_pressed("move_up")):
 			vinny.play("vinny_mu")
-		if Input.is_action_pressed("move_down"):
+			if(can_attack):
+				can_attack = false
+				$AttackTimer.start()
+				var attack_up = $AttackPositions/MarkerUp
+				attacking.emit(attack_up.global_position, direction)
+		if (Input.is_action_pressed("move_down")):
 			vinny.play("vinny_md")
+			if(can_attack):
+				can_attack = false
+				$AttackTimer.start()
+				var attack_down = $AttackPositions/MarkerDown
+				attacking.emit(attack_down.global_position, direction)
 	else:
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
 		vinny.play("default")
 	
-	move_and_collide(velocity * delta)
-	basic_attack()
-	#health += recovery * delta
+	Stats.health += Stats.recovery * delta
 	check_XP()
 
 
@@ -48,16 +66,6 @@ func level_up():
 		Stats.max_health += 5
 		Stats.health = Stats.max_health
 		Stats.experience = 0
-		
-func basic_attack():
-	var vinny_pos = Stats.player_pos.round()
-	if(can_attack):
-		var attack_markers = $AttackPositions.get_children()
-		var selected_attack_position = attack_markers[randi() % attack_markers.size()]
-		can_attack = false
-		$AttackTimer.start()
-		attacking.emit(selected_attack_position.global_position, vinny_pos)
-		
 
 #func take_damage(amount):
 	#health -= max(amount - armor, 0)

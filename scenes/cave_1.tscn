@@ -59,7 +59,6 @@ position = Vector2(45, -24)
 
 [node name="Vinny" parent="." index="3" unique_id=835378263]
 scale = Vector2(0.25, 0.25)
-collision_mask = 31
 
 [node name="Camera2D" parent="Vinny" index="4" unique_id=854223475]
 zoom = Vector2(3, 3)

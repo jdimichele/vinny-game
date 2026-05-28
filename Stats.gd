@@ -18,8 +18,15 @@ signal stat_change
 		armor = value
 		stat_change.emit()
 
-@export var recovery : float
-@export var movespeed : float
+@export var recovery : float = 1:
+	set(value):
+		recovery = value
+		stat_change.emit()
+
+@export var movespeed : float = 5:
+	set(value):
+		movespeed = value
+		stat_change.emit()
 @export var stength : float
 @export var area : float
 @export var magnet : float
