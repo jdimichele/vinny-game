@@ -25,12 +25,12 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="TextureRect" type="TextureRect" parent="PlayerLevel/VBoxContainer" unique_id=1181486559]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="PlayerLevel/VBoxContainer" unique_id=1913108576]
 layout_mode = 2
 text = "1"
-
-[node name="TextureRect" type="TextureRect" parent="PlayerLevel/VBoxContainer" unique_id=1181486559]
-layout_mode = 2
 
 [node name="HealthProgressContainer" type="MarginContainer" parent="." unique_id=259098401]
 anchors_preset = 7
@@ -53,6 +53,10 @@ value = 100.0
 texture_under = ExtResource("2_nltto")
 texture_over = ExtResource("3_ibotj")
 texture_progress = ExtResource("4_n5ude")
+
+[node name="Label" type="Label" parent="HealthProgressContainer" unique_id=201977203]
+layout_mode = 2
+text = "100"
 
 [node name="ExperienceProgressContainer" type="MarginContainer" parent="." unique_id=98082184]
 anchors_preset = 7

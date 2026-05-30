@@ -7,6 +7,10 @@ var can_attack: bool = true
 var movement_speed : float = 150
 var xp_to_level = 100
 
+func _ready():
+	if(Input.is_action_pressed("take_damage")):
+		take_damage(10)
+
 func _process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -16,11 +20,11 @@ func _process(delta):
 	velocity = direction * movement_speed;
 	Stats.player_pos = global_position
 	move_and_slide()
-
+	
 	if direction:
 		if (Input.is_action_pressed("move_left")):
 			vinny.play("vinny_ml")
-			if (can_attack): 
+			if (can_attack):
 				can_attack = false
 				$AttackTimer.start()
 				var attack_left = $AttackPositions/MarkerLeft
@@ -50,11 +54,15 @@ func _process(delta):
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
 		vinny.play("default")
 	
-	Stats.health += Stats.recovery * delta
+	#TODO: Need to fix static spawn of the attack only being on Vinny
+	#if(!direction and can_attack):
+		#can_attack = false
+		#$AttackTimer.start()
+		#var attack_right = $AttackPositions/MarkerRight
+		#attacking.emit(attack_right.global_position, direction)
+		
+	health_recovery(delta)
 	check_XP()
-
-
-
 
 func check_XP():
 	if(Stats.experience >= xp_to_level):
@@ -67,8 +75,11 @@ func level_up():
 		Stats.health = Stats.max_health
 		Stats.experience = 0
 
-#func take_damage(amount):
-	#health -= max(amount - armor, 0)
+func take_damage(amount):
+	Stats.health = Stats.health - amount
+	
+func health_recovery(delta):
+	Stats.health += Stats.recovery * delta
 
 
 func _on_attack_timer_timeout():

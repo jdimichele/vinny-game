@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var player_level_label: Label = $PlayerLevel/VBoxContainer/Label
 @onready var player_level_icon: TextureRect = $PlayerLevel/VBoxContainer/TextureRect
 @onready var health_bar: TextureProgressBar = $HealthProgressContainer/HealthProgressBar
+@onready var health_bar_label: Label = $HealthProgressContainer/Label
 @onready var experience_bar: TextureProgressBar = $ExperienceProgressContainer/ExperienceProgressBar
 
 # Called when the node enters the scene tree for the first time.
@@ -12,16 +13,21 @@ func _ready():
 	update_max_health()
 	update_experience_bar()
 	update_player_level_text()
+	update_health_bar_text()
 
 func update_stat_text():
 	update_health_bar()
 	update_max_health()
 	update_experience_bar()
 	update_player_level_text()
+	update_health_bar_text()
 	
 
 func update_health_bar():
 	health_bar.value = Stats.health
+
+func update_health_bar_text():
+	health_bar_label.text = str(Stats.health)
 
 func update_max_health():
 	health_bar.max_value = Stats.max_health
