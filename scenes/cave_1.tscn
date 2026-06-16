@@ -5,6 +5,7 @@
 [ext_resource type="TileSet" uid="uid://0porkf0qi5fc" path="res://assets/map_assets/stone_floor_tileset.tres" id="3_y2lqh"]
 [ext_resource type="TileSet" uid="uid://vhmtuvrniig8" path="res://assets/map_assets/stone_wall_tileset.tres" id="4_d4kx6"]
 [ext_resource type="PackedScene" uid="uid://cvko848nghxdk" path="res://items/experience.tscn" id="5_d4kx6"]
+[ext_resource type="PackedScene" uid="uid://dw0vd3g1hjjgo" path="res://entities/enemies/skeeter.tscn" id="6_ifogu"]
 
 [node name="Level" unique_id=1108228522 instance=ExtResource("1_kx55l")]
 
@@ -57,7 +58,11 @@ position = Vector2(63, 28)
 [node name="Experience12" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="11" unique_id=208087190 instance=ExtResource("5_d4kx6")]
 position = Vector2(45, -24)
 
-[node name="Vinny" parent="." index="3" unique_id=835378263]
+[node name="Skeeter" parent="Enemies" parent_id_path=PackedInt32Array(661901582) index="0" unique_id=1788627883 instance=ExtResource("6_ifogu")]
+position = Vector2(-93, -53)
+scale = Vector2(0.2, 0.2)
+
+[node name="Vinny" parent="." index="4" unique_id=835378263]
 scale = Vector2(0.25, 0.25)
 
 [node name="Camera2D" parent="Vinny" index="4" unique_id=854223475]

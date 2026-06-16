@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @onready var player_level_label: Label = $PlayerLevel/VBoxContainer/Label
-@onready var player_level_icon: TextureRect = $PlayerLevel/VBoxContainer/TextureRect
 @onready var health_bar: TextureProgressBar = $HealthProgressContainer/HealthProgressBar
 @onready var health_bar_label: Label = $HealthProgressContainer/Label
 @onready var experience_bar: TextureProgressBar = $ExperienceProgressContainer/ExperienceProgressBar

@@ -2,10 +2,18 @@ extends Node
 
 signal stat_change
 
+var vulnerable: bool = true
+
 @export_multiline var description : String
 @export var health : int = 100:
 	set(value):
-		health = value
+		if value > health:
+			health = min(value, max_health)
+		else:
+			if vulnerable:
+				health = value
+				vulnerable = false
+				invulnerable_timer()
 		stat_change.emit()
 
 @export var max_health : int = 100:
@@ -48,3 +56,7 @@ signal stat_change
 
 # Move this in the future.
 var player_pos: Vector2
+
+func invulnerable_timer():
+	await get_tree().create_timer(0.5).timeout
+	vulnerable = true

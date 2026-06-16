@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dw0vd3g1hjjgo"]
+
+[ext_resource type="Script" uid="uid://cbfu6ovm5cgu8" path="res://entities/enemies/skeeter.gd" id="1_tbt7r"]
+[ext_resource type="Texture2D" uid="uid://cgnhlfrp0rvrd" path="res://assets/enemy_assets/skeeter.png" id="1_ykge5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykge5"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tbt7r"]
+
+[node name="Skeeter" type="CharacterBody2D" unique_id=1788627883 groups=["Enemies"]]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_tbt7r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=388312418]
+texture = ExtResource("1_ykge5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=424050559]
+shape = SubResource("CircleShape2D_ykge5")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=448816904]
+scale = Vector2(70, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1667315227]
+shape = SubResource("CircleShape2D_tbt7r")
+
+[node name="SkeeterAttackPositions" type="Node2D" parent="." unique_id=401520009]
+
+[node name="Attack" type="Marker2D" parent="SkeeterAttackPositions" unique_id=481818347]
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1723745607]
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
