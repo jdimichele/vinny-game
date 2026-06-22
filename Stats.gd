@@ -29,6 +29,7 @@ var vulnerable: bool = true
 @export var recovery : int = 1:
 	set(value):
 		recovery = value
+		health += recovery
 		stat_change.emit()
 
 @export var movespeed : int = 5:
