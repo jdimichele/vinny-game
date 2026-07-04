@@ -122,7 +122,7 @@ height = 88.0
 
 [node name="Vinny" type="CharacterBody2D" unique_id=835378263]
 scale = Vector2(1.5, 1.5)
-collision_mask = 31
+collision_mask = 30
 script = ExtResource("1_0wgj7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=809081168]

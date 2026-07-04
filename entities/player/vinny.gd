@@ -6,39 +6,11 @@ signal attacking(pos, direction)
 var can_attack: bool = true
 var movement_speed : float = 150
 var xp_to_level = 100
-var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 func _process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	#if(direction):
-		#if (Input.is_action_pressed("move_left")):
-			#vinny.play("vinny_ml")
-			#if (can_attack):
-				#can_attack = false
-				#$AttackTimer.start()
-				#var attack_left = $AttackPositions/MarkerLeft
-				#attacking.emit(attack_left.global_position, direction)
-	
-	else:
-		velocity.x = move_toward(velocity.x, 0, movement_speed)
-		vinny.play("default")
-		if (can_attack):
-			can_attack = false
-			$AttackTimer.start()
-			var attack_right = $AttackPositions/MarkerRight
-			attacking.emit(attack_right.global_position, direction)
-		
-		
-	
-	#TODO: Need to fix static spawn of the attack only being on Vinny
-	#if(!direction and can_attack):
-		#can_attack = false
-		#$AttackTimer.start()
-		#var attack_right = $AttackPositions/MarkerRight
-		#attacking.emit(attack_right.global_position, direction)
 	movement()
 	take_damage(10)
 	health_recovery(delta)
@@ -54,6 +26,11 @@ func level_up():
 		Stats.max_health += 5
 		Stats.health = Stats.max_health
 		Stats.experience = 0
+		Stats.stength += 10
+		print("Stength set: ", Stats.stength)
+		print("Damage before: ", Stats.player_dmg)
+		Stats.player_dmg += Stats.stength
+		print("Damage after: ", Stats.player_dmg)
 
 func take_damage(amount):
 	if Input.is_action_pressed("take_damage"):
@@ -63,22 +40,53 @@ func health_recovery(delta):
 	Stats.health += Stats.recovery * delta
 
 func movement():
-	var x_movement = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	var y_movement = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	var move = Vector2(x_movement, y_movement)
-	
-	if move.x > 0:
-		vinny.play("vinny_mr")
-	elif move.x < 0:
-		vinny.play("vinny_ml")
-	
-	if move.y > 0:
-		vinny.play("vinny_md")
-	elif move.y < 0:
-		vinny.play("vinny_mu")
-	
-	velocity = move.normalized() * movement_speed
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var last_attack_direction
+	velocity = direction * movement_speed;
+	Stats.player_pos = global_position
 	move_and_slide()
+	
+	if direction:
+		if (Input.is_action_pressed("move_left")):
+			vinny.play("vinny_ml")
+			if (can_attack):
+				can_attack = false
+				$AttackTimer.start()
+				last_attack_direction = $AttackPositions/MarkerLeft
+				attacking.emit(last_attack_direction.global_position, direction)
+				
+		if (Input.is_action_pressed("move_right")):
+			vinny.play("vinny_mr")
+			if (can_attack):
+				can_attack = false
+				$AttackTimer.start()
+				last_attack_direction = $AttackPositions/MarkerRight
+				attacking.emit(last_attack_direction.global_position, direction)
+				
+		if (Input.is_action_pressed("move_up")):
+			vinny.play("vinny_mu")
+			if(can_attack):
+				can_attack = false
+				$AttackTimer.start()
+				last_attack_direction = $AttackPositions/MarkerUp
+				attacking.emit(last_attack_direction.global_position, direction)
+				
+		if (Input.is_action_pressed("move_down")):
+			vinny.play("vinny_md")
+			if(can_attack):
+				can_attack = false
+				$AttackTimer.start()
+				last_attack_direction = $AttackPositions/MarkerDown
+				attacking.emit(last_attack_direction.global_position, direction)
+	else:
+		velocity.x = move_toward(velocity.x, 0, movement_speed)
+		vinny.play("default")
+		if (can_attack):
+			can_attack = false
+			$AttackTimer.start()
+			last_attack_direction = $AttackPositions/MarkerDown
+			print(last_attack_direction)
+			attacking.emit(last_attack_direction.global_position, direction)
 	
 
 func _on_attack_timer_timeout():

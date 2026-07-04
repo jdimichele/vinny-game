@@ -37,7 +37,17 @@ var vulnerable: bool = true
 		movespeed = value
 		stat_change.emit()
 
-@export var stength : int 
+@export var stength : int = 0:
+	set(value):
+		stength = value
+		stat_change.emit()
+
+@export var player_dmg : int = 10:
+	set(value):
+		player_dmg = value
+		#player_dmg += stength
+		stat_change.emit()
+
 @export var area : int 
 @export var magnet : int = 1
 @export var growth : int 
