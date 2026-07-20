@@ -36,8 +36,14 @@ folder_colors={
 "res://entities/": "teal",
 "res://items/": "green",
 "res://scenes/": "red",
-"res://user_interface/": "purple"
+"res://user_interface/": "purple",
+"res://utility/": "yellow"
 }
+
+[global_group]
+
+Enemies=""
+Player=""
 
 [input]
 

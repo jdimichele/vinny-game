@@ -27,10 +27,7 @@ func level_up():
 		Stats.health = Stats.max_health
 		Stats.experience = 0
 		Stats.stength += 10
-		print("Stength set: ", Stats.stength)
-		print("Damage before: ", Stats.player_dmg)
 		Stats.player_dmg += Stats.stength
-		print("Damage after: ", Stats.player_dmg)
 
 func take_damage(amount):
 	if Input.is_action_pressed("take_damage"):
@@ -85,7 +82,6 @@ func movement():
 			can_attack = false
 			$AttackTimer.start()
 			last_attack_direction = $AttackPositions/MarkerDown
-			print(last_attack_direction)
 			attacking.emit(last_attack_direction.global_position, direction)
 	
 

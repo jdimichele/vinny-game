@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dmcjqn1hnyikg" path="res://assets/map_assets/dirt.png" id="2_y2lqh"]
 [ext_resource type="TileSet" uid="uid://0porkf0qi5fc" path="res://assets/map_assets/stone_floor_tileset.tres" id="3_y2lqh"]
 [ext_resource type="TileSet" uid="uid://vhmtuvrniig8" path="res://assets/map_assets/stone_wall_tileset.tres" id="4_d4kx6"]
-[ext_resource type="PackedScene" uid="uid://cvko848nghxdk" path="res://items/experience.tscn" id="5_d4kx6"]
-[ext_resource type="PackedScene" uid="uid://dw0vd3g1hjjgo" path="res://entities/enemies/skeeter.tscn" id="6_ifogu"]
 
 [node name="Level" unique_id=1108228522 instance=ExtResource("1_kx55l")]
 
@@ -21,45 +19,6 @@ tile_set = ExtResource("3_y2lqh")
 [node name="Walls" type="TileMapLayer" parent="Ground" parent_id_path=PackedInt32Array(306128855) index="2" unique_id=1832820667]
 tile_map_data = PackedByteArray("AAAHAPz/AAAHAAUAAAAHAP3/AAAHAAYAAAAHAP7/AAAHAAYAAAAHAP//AAAHAAYAAAAHAAAAAAAHAAYAAAAHAAEAAAAHAAcAAAAIAPz/AAAIAAUAAAAIAP3/AAAIAAYAAAAIAP7/AAAIAAYAAAAIAP//AAAIAAYAAAAIAAAAAAAIAAYAAAAIAAEAAAAIAAcAAAA=")
 tile_set = ExtResource("4_d4kx6")
-
-[node name="Experience" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="0" unique_id=328085897 instance=ExtResource("5_d4kx6")]
-position = Vector2(74, -41)
-
-[node name="Experience2" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="1" unique_id=1582710373 instance=ExtResource("5_d4kx6")]
-position = Vector2(43, 9)
-
-[node name="Experience3" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="2" unique_id=394962137 instance=ExtResource("5_d4kx6")]
-position = Vector2(16, 11)
-
-[node name="Experience4" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="3" unique_id=707796285 instance=ExtResource("5_d4kx6")]
-position = Vector2(46, -14)
-
-[node name="Experience5" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="4" unique_id=1489209822 instance=ExtResource("5_d4kx6")]
-position = Vector2(41, 18)
-
-[node name="Experience6" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="5" unique_id=642845267 instance=ExtResource("5_d4kx6")]
-position = Vector2(54, 12)
-
-[node name="Experience7" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="6" unique_id=2039559888 instance=ExtResource("5_d4kx6")]
-position = Vector2(15, -16)
-
-[node name="Experience8" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="7" unique_id=1618877820 instance=ExtResource("5_d4kx6")]
-position = Vector2(31, -22)
-
-[node name="Experience9" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="8" unique_id=1814943754 instance=ExtResource("5_d4kx6")]
-position = Vector2(65, -4)
-
-[node name="Experience10" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="9" unique_id=1044888847 instance=ExtResource("5_d4kx6")]
-position = Vector2(30, 15)
-
-[node name="Experience11" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="10" unique_id=1851220812 instance=ExtResource("5_d4kx6")]
-position = Vector2(63, 28)
-
-[node name="Experience12" parent="Items" parent_id_path=PackedInt32Array(1598481935) index="11" unique_id=208087190 instance=ExtResource("5_d4kx6")]
-position = Vector2(45, -24)
-
-[node name="Skeeter" parent="Enemies" parent_id_path=PackedInt32Array(661901582) index="0" unique_id=1788627883 instance=ExtResource("6_ifogu")]
-position = Vector2(-93, -53)
 
 [node name="Vinny" parent="." index="4" unique_id=835378263]
 scale = Vector2(0.25, 0.25)

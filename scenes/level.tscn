@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cicguqoh1ubr3" path="res://entities/player/vinny.tscn" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://5rycthse1w0y" path="res://scenes/level.gd" id="1_w8frs"]
+[ext_resource type="PackedScene" uid="uid://b7ubjexg2jnlh" path="res://utility/enemy_spawner.tscn" id="2_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://d2b27fsx3b2wy" path="res://user_interface/ui.tscn" id="2_w7c3h"]
 
 [node name="Level" type="Node2D" unique_id=1108228522]
@@ -14,6 +15,8 @@ script = ExtResource("1_w8frs")
 [node name="Attacks" type="Node2D" parent="." unique_id=536936595]
 
 [node name="Enemies" type="Node2D" parent="." unique_id=661901582]
+
+[node name="EnemySpawner" parent="Enemies" unique_id=100463274 instance=ExtResource("2_mx8sn")]
 
 [node name="Vinny" parent="." unique_id=835378263 instance=ExtResource("1_2q6dc")]
 

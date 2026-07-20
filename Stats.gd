@@ -45,7 +45,6 @@ var vulnerable: bool = true
 @export var player_dmg : int = 10:
 	set(value):
 		player_dmg = value
-		#player_dmg += stength
 		stat_change.emit()
 
 @export var area : int 
